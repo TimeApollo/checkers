@@ -1,20 +1,14 @@
 'use strict'
 
-function Grid ( rowLength , columnLength , gridParentElement = document.getElementById( 'main' ) ){
+function Grid ( {rowLength , columnLength , gridParentElement = document.getElementById( 'main' ) , directions } ){
     this.rowLength = rowLength;
     this.columnLength = columnLength;
     this.gridParentElement = gridParentElement; //defaults to main tag if none is specified.
     
     this.createGrid(); //makes a grid using the size parameters passed in.
 
-    this.directions = {
-        up: [ -1 , 0 ],
-        down: [ 1 , 0 ],
-        left: [ 0 , -1 ],
-        right: [ 0 , 1 ],
-    }
-    
-    console.log( this.grid )
+    this.directions = directions;
+  
 }
 
 //creates the grid array. stores the cell objects and the elements they are attached to.
@@ -83,17 +77,22 @@ Grid.prototype.returnNeighbors = function( Cell ){
 }
 
 Grid.prototype.handleEvent = function( event ){
+    if (!event.target.classList.contains("cell")) return false;
+
     let clickedCell = this.findCell( Number( event.target.dataset.row) , Number(event.target.dataset.column ))
-    if( event.type === 'click' ){
+
+    const clickTypes = {
+      click: () => {
         console.log('target' , event.target);
         clickedCell.setAsClicked();
         this.returnNeighbors( clickedCell ).forEach( cell => cell.setAsClicked());
         console.log( 'neighbors' , this.returnNeighbors( clickedCell ));
         console.log( 'changed' , clickedCell )
+      },
 
-    }else if( event.type === 'contextmenu'){
+      contextmenu: () => {
         event.preventDefault();
-        console.log( 'yo' )
+      }
     }
-
+    clickTypes[event.type]()
 }

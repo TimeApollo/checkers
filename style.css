@@ -1,15 +1,55 @@
+main {
+  display: flex;
+  justify-content: center;
+}
+
 .container {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
+    border: black solid 1px;
+    pointer-events: none;
 }
 
 .row {
     display: flex;
+    pointer-events: none; 
 }
 
 .cell {
-    height: 20px;
-    width: 20px;
-    border: black solid 1px;
-    background-color: green;
+    height: 10vmin;
+    width: 10vmin;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+}
+
+.cell.black {
+  background-color: black;
+}
+
+.cell.black.clicked {
+  /* box-shadow: inset .4vmin .4vmin .4vmin .4vmin yellow; */
+  background-color: yellowgreen;
+}
+
+.checker.redPiece {
+  box-sizing: border-box;
+  background-color: red;
+  border: 1px white solid;
+  border-radius: 50%;
+  height: 8vmin;
+  width: 8vmin;
+  pointer-events: none;
+}
+
+.checker.blackPiece {
+  box-sizing: border-box;
+  background-color: black;
+  border: 1px white solid;
+  border-radius: 50%;
+  height: 8vmin;
+  width: 8vmin;
+  pointer-events: none;
 }
