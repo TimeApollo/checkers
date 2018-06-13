@@ -1,7 +1,5 @@
 'use strict'
 
-import {Game} from "./classes/Game.js";
-
 const init = {
   rowLength: 8,
   columnLength: 8,

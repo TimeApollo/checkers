@@ -1,8 +1,6 @@
 'use strict'
 
-import {Player} from "./classes/Player.js"
-
-export function Game( init ){
+function Game( init ){
   this.board = new CheckersGrid( init , this );
   this.board.grid.element.addEventListener( 'click' , this );
   this.board.grid.element.addEventListener( 'contextmenu' , this );

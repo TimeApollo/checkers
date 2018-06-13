@@ -1,9 +1,6 @@
 'use strict'
 
-import {CheckerPiece} from "./CheckerPiece.js";
-import {CheckersGrid} from "./CheckersGrid.js";
-
-export function Player( gridInstance , color = 'red' , currentGame ){
+function Player( gridInstance , color = 'red' , currentGame ){
   this.color = color;
   this.checkerGrid = gridInstance;
   this.currentGame = currentGame;

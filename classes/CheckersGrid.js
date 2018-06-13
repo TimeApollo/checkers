@@ -1,10 +1,7 @@
 'use strict'
 
-import {DarkCheckerCell} from "./classes/DarkCheckerCell.js";
-import {CheckerCell} from "./classes/CheckerCell.js";
-
 //inherits from grid class.
-export function CheckersGrid( init , currentGame ){
+function CheckersGrid( init , currentGame ){
   this.currentGame = currentGame;
   Grid.call( this , init )
   console.log('Checkers Grid' , this);

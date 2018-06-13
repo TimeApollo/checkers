@@ -1,6 +1,6 @@
 'use strict'
 
-export function DarkCheckerCell( rowIndex , columnIndex ){
+function DarkCheckerCell( rowIndex , columnIndex ){
   CheckerCell.call( this , rowIndex , columnIndex )
   this.addClassList();
 }
